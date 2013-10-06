@@ -41,15 +41,14 @@ public class UI {
 		System.out.println("Prime numbers p and q");
 		System.out.println("p: " + rsa.getP().toString(16).toUpperCase());
 		System.out.println("q: " + rsa.getQ().toString(16).toUpperCase());
-
+		System.out.println("");
 		System.out.println("The public key is: ");
 		System.out.println("N:" + keys.getN().toString(16).toUpperCase());
 		System.out.println("E: [" + keys.getE().toString(16).toUpperCase());
-
+		System.out.println("");
 		System.out.println("The private key is:");
 		System.out.println("N: " + keys.getN().toString(16).toUpperCase());
 		System.out.println("D: " + keys.getD().toString(16).toUpperCase());
-		System.out.println("");
 		System.out
 				.println("===================================================");
 		System.out.println("");
@@ -69,7 +68,7 @@ public class UI {
 
 		System.out.print("Ciphertext: [");
 		for (int i = 0; i < ciphertext.length; i++) {
-			System.out.print(ciphertext[i].toString(16));
+			System.out.print(ciphertext[i].toString(2));
 
 			if (i != ciphertext.length - 1) {
 				System.out.print(" ");
@@ -90,7 +89,7 @@ public class UI {
 
 			array = new BigInteger[strs.length];
 			for (int j = 0; j < strs.length; j++) {
-				BigInteger bi = new BigInteger(strs[j], 16);
+				BigInteger bi = new BigInteger(strs[j], 2);
 				array[j] = bi;
 
 			}
