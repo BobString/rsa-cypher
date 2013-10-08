@@ -43,8 +43,8 @@ public class UI {
 		System.out.println("q: " + rsa.getQ().toString(16).toUpperCase());
 		System.out.println("");
 		System.out.println("The public key is: ");
-		System.out.println("N:" + keys.getN().toString(16).toUpperCase());
-		System.out.println("E: [" + keys.getE().toString(16).toUpperCase());
+		System.out.println("N: " + keys.getN().toString(16).toUpperCase());
+		System.out.println("E: " + keys.getE().toString(16).toUpperCase());
 		System.out.println("");
 		System.out.println("The private key is:");
 		System.out.println("N: " + keys.getN().toString(16).toUpperCase());
@@ -86,7 +86,10 @@ public class UI {
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					System.in));
 			String[] strs = br.readLine().split(" ");
-
+			if (strs.length == 0) {
+				throw new RuntimeException(
+						"Please don't enter an empty cyphertext");
+			}
 			array = new BigInteger[strs.length];
 			for (int j = 0; j < strs.length; j++) {
 				BigInteger bi = new BigInteger(strs[j], 2);
@@ -99,7 +102,7 @@ public class UI {
 			e.printStackTrace();
 		}
 
-		System.out.println("Decrypting: ");
+		System.out.println("Decrypting... ");
 		RSA rsaaux = new RSA(primeSize);
 
 		String recoveredPlaintext = rsaaux.decrypt(array, keys.getD(),
